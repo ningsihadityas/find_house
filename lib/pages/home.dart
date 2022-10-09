@@ -8,14 +8,19 @@ import 'package:find_house/widgets/city_card.dart';
 import 'package:find_house/widgets/space_card.dart';
 import 'package:find_house/widgets/tips_card.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../modals/city.dart';
+import '../providers/space_provider.dart';
 
 class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+  //const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var spaceProvider = Provider.of<SpaceProvider>(context);
+    //spaceProvider.getRecommendedSpaces();
+
     return Scaffold(
       body: SafeArea(
         bottom: false,
@@ -85,42 +90,19 @@ class Home extends StatelessWidget {
             SizedBox(height: 16),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: edge),
-              child: Column(
-                children: [
-                  spaceCard(Space(
-                      id: 1,
-                      name: 'Kuretakeso Hott',
-                      imageUrl: 'assets/images/space1.png',
-                      price: 52,
-                      rating: 4,
-                      city: 'Bandung',
-                      country: 'Germany')),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  spaceCard(Space(
-                      id: 2,
-                      name: 'Roemah Nenek',
-                      imageUrl: 'assets/images/space2.png',
-                      price: 11,
-                      rating: 5,
-                      city: 'Seattle',
-                      country: 'Bogor')),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  spaceCard(Space(
-                      id: 3,
-                      name: 'Darrling How',
-                      imageUrl: 'assets/images/space3.png',
-                      price: 20,
-                      rating: 3,
-                      city: 'Jakarta',
-                      country: 'Indonesia')),
-                  SizedBox(
-                    height: 30,
-                  ),
-                ],
+              child: FutureBuilder(
+                future: spaceProvider.getRecommendedSpaces(),
+                builder: (BuildContext context, AsyncSnapshot snapshot) {
+                  if (snapshot.hasData) {
+                    List<Space> data = snapshot.data;
+
+                    return Column(
+                        children: data.map((item) => SpaceCard(item)).toList());
+                  }
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                },
               ),
             ),
             SizedBox(

@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import '../modals/space.dart';
 import '../theme.dart';
 
-class spaceCard extends StatelessWidget {
+class SpaceCard extends StatelessWidget {
   final Space space;
-  spaceCard(this.space);
+  SpaceCard(this.space);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class spaceCard extends StatelessWidget {
               height: 110,
               child: Stack(
                 children: [
-                  Image.asset(
+                  Image.network(
                     space.imageUrl,
                   ),
                   Align(
