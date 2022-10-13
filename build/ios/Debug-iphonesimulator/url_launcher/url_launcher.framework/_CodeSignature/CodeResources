@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		MflIDxkrTnA9KaT6sFkaszyjQWg=
+		NjUVFMRIxuEb7nBCa5HP1xtL15Y=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -25,10 +25,6 @@
 	<dict>
 		<key>Headers/FLTURLLauncherPlugin.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/Om48hk71JcX0NsUQBeOa9p5GXQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			woKI4nkdAmbkxjmMJOttKsPSsOnaTGIHbWcJWxDqMZU=
@@ -36,10 +32,6 @@
 		</dict>
 		<key>Headers/url_launcher-umbrella.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Er13QC2JHztrggRShCt2/K1wqNw=
-			</data>
 			<key>hash2</key>
 			<data>
 			HsLbjY7ljMQgU7ajxZiK7uJu0ET8Vhjyu4NmtOpon2o=
@@ -47,10 +39,6 @@
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			mzMMjRjqfvq2pHSdDUwOv+emkjc=
-			</data>
 			<key>hash2</key>
 			<data>
 			r9lqpngsjLXjB9KgRwkNVEZBZ1S2Lvz5cjNZEv0goSs=

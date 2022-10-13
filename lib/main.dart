@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => SpaceProvider(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: SplashScreen(),
       ),
     );

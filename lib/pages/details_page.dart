@@ -3,25 +3,27 @@ import 'package:find_house/theme.dart';
 import 'package:find_house/widgets/facilities.dart';
 import 'package:find_house/widgets/rating_item.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 // import 'package:url_launcher/url_launcher.dart';
 
 class DetailPage extends StatelessWidget {
   //const DetailPage({Key? key}) : super(key: key);
-
-  // final Uri url = Uri.parse('https://goo.gl/maps/n6Bhhjxhd7NftAd46');
-
-  // launchUrl(Uri url) async {
-  //   if (await canLaunchUrl(url)) {
-  //     launchUrl(url);
-  //   } else
-  //     (throw (url));
-  // }
 
   final Space space;
   DetailPage(this.space);
 
   @override
   Widget build(BuildContext context) {
+    // final Uri url = Uri.parse('https://goo.gl/maps/n6Bhhjxhd7NftAd46');
+
+    launchUrl(String url) async {
+      if (await canLaunch(url)) {
+        launch(url);
+      } else {
+        throw (url);
+      }
+    }
+
     return Scaffold(
       backgroundColor: whiteColor,
       body: SafeArea(
@@ -204,7 +206,7 @@ class DetailPage extends StatelessWidget {
                               ),
                               InkWell(
                                 onTap: () {
-                                  // launchUrl(space.mapUrl);
+                                  launchUrl(space.mapUrl);
                                 },
                                 child: Image.asset(
                                   'assets/images/btn_location.png',
@@ -226,7 +228,7 @@ class DetailPage extends StatelessWidget {
                                   ),
                                   primary: purpleColor),
                               onPressed: () {
-                                // launchUrl('tel:${space.phone}');
+                                launchUrl('tel:${space.phone}');
                               },
                               child: Text('Book Now'),
                             ),
